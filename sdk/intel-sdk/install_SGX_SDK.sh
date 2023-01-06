@@ -72,3 +72,8 @@ fi
 sudo ./sgx_linux_x64_psw_*.bin
 
 echo "SGX SDK succesfully installed!"
+
+# ---------------------------------------------------------------------
+echo "-----------------------------------------------------------------"
+printf "\n\n\e[1;33mNOTE\e[0m: add the following line to ~/.bashrc\n\n"
+printf "\t \e[1;32m source /opt/intel/sgxsdk/environment \e[0m\n\n"
