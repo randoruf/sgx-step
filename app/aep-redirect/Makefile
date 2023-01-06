@@ -42,10 +42,10 @@ MAKEFLAGS           += --silent
 
 all: $(OUTPUT)
 	
-run: clean all
+run: 
 	sudo $(URTS_LD_LIBRARY_PATH) ./$(OUTPUT)
 
-debug: clean all
+debug: 
 	sudo `which sgx-gdb` ./$(OUTPUT)
 
 $(OUTPUT): $(BUILDDIRS) $(OBJECTS)

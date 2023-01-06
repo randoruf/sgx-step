@@ -1,4 +1,12 @@
-Sample output:
+
+## Booting Parameters
+
+```sh
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash nox2apic iomem=relaxed no_timer_check nosmep nosmap clearcpuid=514 kpti=0 isolcpus=1 nmi_watchdog=0 rcupdate.rcu_cpu_stall_suppress=1 msr.allow_writes=on vdso=0"
+```
+
+
+## Sample Output
 
 ```
 [main.c] Creating enclave...
