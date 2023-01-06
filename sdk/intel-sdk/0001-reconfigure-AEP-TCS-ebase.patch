@@ -1,9 +1,16 @@
-commit 1a75eb4d0954b1f3eab76a211647de8a80031170
-Author: Jo Van Bulck <jo.vanbulck@cs.kuleuven.be>
-Date:   Wed Apr 13 13:55:33 2022 +0200
-
-    SGX-Step SDK patches to reconfigure AEP/TCS.
-
+diff --git a/Makefile b/Makefile
+index c9905ffc..6c0ff71e 100644
+--- a/Makefile
++++ b/Makefile
+@@ -50,7 +50,7 @@ tips:
+ preparation:
+ # As SDK build needs to clone and patch openmp, we cannot support the mode that download the source from github as zip.
+ # Only enable the download from git
+-	git submodule update --init --recursive
++	git submodule update --init --recursive --progress
+ 	./external/dcap_source/QuoteVerification/prepare_sgxssl.sh nobuild
+ 	cd external/openmp/openmp_code && git apply ../0001-Enable-OpenMP-in-SGX.patch >/dev/null 2>&1 ||  git apply ../0001-Enable-OpenMP-in-SGX.patch --check -R
+ 	cd external/protobuf/protobuf_code && git apply ../sgx_protobuf.patch >/dev/null 2>&1 ||  git apply ../sgx_protobuf.patch --check -R
 diff --git a/common/inc/sgx_urts.h b/common/inc/sgx_urts.h
 index 691efbc9..07240fa7 100644
 --- a/common/inc/sgx_urts.h
