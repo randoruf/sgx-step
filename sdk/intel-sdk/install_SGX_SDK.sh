@@ -28,8 +28,8 @@ echo "SGX-SDK successfully patched!"
 
 # ----------------------------------------------------------------------
 echo "[ installing prerequisites ]"
-sudo apt-get -yqq install build-essential ocaml ocamlbuild automake autoconf libtool wget python libssl-dev git cmake perl
-sudo apt-get -yqq install libssl-dev libcurl4-openssl-dev protobuf-compiler libprotobuf-dev debhelper cmake reprepro unzip lsb-release
+sudo apt-get -y install build-essential ocaml ocamlbuild automake autoconf libtool wget python libssl-dev git cmake perl
+sudo apt-get -y install libssl-dev libcurl4-openssl-dev protobuf-compiler libprotobuf-dev debhelper cmake reprepro unzip lsb-release
 
 OS_ID=$(lsb_release -si | tr '[:upper:]' '[:lower:]')
 OS_REL=$(lsb_release -sr)
