@@ -14,7 +14,7 @@ fi
 echo "Building and installing out-of-tree isgx driver.."
 
 git submodule init
-git submodule update
+git submodule update --progress
 cd linux-sgx-driver
 
 # ----------------------------------------------------------------------
