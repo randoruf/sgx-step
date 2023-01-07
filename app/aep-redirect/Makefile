@@ -1,14 +1,9 @@
 LIBSGXSTEP_DIR       = ../..
 LIBSGXSTEP           = $(LIBSGXSTEP_DIR)/libsgxstep
-URTS_LIB_PATH        = $(LIBSGXSTEP_DIR)/linux-sgx/psw/urts/linux
+URTS_LIB_PATH        = $(LIBSGXSTEP_DIR)/sdk/intel-sdk/linux-sgx/psw/urts/linux
 
-ifeq ($(SGX_SDK),)
-    SGX_SDK          = /opt/intel/sgxsdk
-endif
-export SGX_SDK
-ifneq ($(SGX_SDK), /opt/intel/sgxsdk)
-    URTS_LD_LIBRARY_PATH = LD_LIBRARY_PATH=$(LIBSGXSTEP_DIR)/linux-sgx/psw/urts/linux
-endif
+SGX_SDK          	 = /opt/intel/sgxsdk
+URTS_LD_LIBRARY_PATH = LD_LIBRARY_PATH=$(URTS_LIB_PATH)
 
 ENCLAVE              = Enclave
 SUBDIRS              = $(ENCLAVE) $(LIBSGXSTEP)
@@ -29,7 +24,7 @@ CFLAGS              += -fPIC -fno-stack-protector -fno-builtin -fno-jump-tables 
 INCLUDE              = -I$(SGX_SDK)/include/ -I$(LIBSGXSTEP_DIR) 
 LDFLAGS             += -lsgx-step -lencl_proxy -lsgx_urts \
                        -lsgx_uae_service -pthread $(SUBDIRS:%=-L %) -L$(SGX_SDK)/lib$(LIB_SUFX)/ \
-                       -L$(LIBSGXSTEP_DIR)/linux-sgx/psw/urts/linux
+                       -L$(URTS_LIB_PATH)
 
 SOURCES              = $(shell ls *.c)
 OBJECTS              = $(SOURCES:.c=.o)
